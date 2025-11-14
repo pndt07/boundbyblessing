@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bound by Blessing — Where Every Ceremony Becomes a Blessing</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Inlined Styles (Rose & Blush theme) -->
+  <style>
+    :root{
+      --rose-50: #fff1f2;
+      --rose-100:#ffe4e6;
+      --rose-200:#fecdd3;
+      --rose-500:#e11d48;
+      --rose-600:#be123c;
+      --muted:#6b7280;
+      --card-bg:#ffffff;
+      --glass: rgba(255,255,255,0.85);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Montserrat', sans-serif;
+      color:var(--muted);
+      background: linear-gradient(180deg, var(--rose-50) 0%, #fff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-track{background:#fff}
+    ::-webkit-scrollbar-thumb{background:var(--rose-500);border-radius:6px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--rose-600)}
+
+    /* Typography */
+    h1,h2,h3{font-family:'Playfair Display',serif;color:var(--rose-500);margin:0 0 .6rem}
+    p{margin:0 0 1rem}
+    a{color:inherit}
+
+    /* Layout container */
+    .container{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+    /* NAVBAR (fixed) */
+    custom-navbar, nav[aria-hidden="false"]{display:block}
+    .site-nav{
+      position:fixed;left:0;right:0;top:0;z-index:999;
+      background:var(--glass);backdrop-filter:blur(6px);
+      box-shadow:0 4px 18px rgba(16,24,40,0.06);
+    }
+    .site-nav .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+    .logo .heart{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:linear-gradient(135deg,var(--rose-200),#fff);color:var(--rose-500);font-size:16px}
+    .brand{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--rose-500)}
+    .tagline{font-size:.85rem;color:var(--muted);margin-left:.25rem}
+
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{font-weight:500;color:var(--muted);text-decoration:none;position:relative;padding:0.25rem}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--rose-500);transition:width .28s ease}
+    .nav-links a:hover{color:var(--rose-500)}
+    .nav-links a:hover::after{width:100%}
+
+    .menu-btn{display:none;background:none;border:0;cursor:pointer;font-size:1.25rem;color:var(--muted)}
+
+    /* HERO */
+    .hero{min-height:72vh;display:flex;align-items:center;justify-content:center;padding:6rem 0 4rem;position:relative;overflow:hidden}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,234,238,0.5), rgba(255,250,250,0.3));pointer-events:none}
+    .hero .card{position:relative;z-index:2;text-align:center;padding:3rem;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,250,250,0.85));box-shadow:0 20px 40px rgba(14,14,20,0.06);max-width:900px}
+    .hero h1{font-size:2.6rem;line-height:1.05}
+    .hero p{font-size:1.1rem;color:var(--muted);margin-bottom:1.2rem}
+    .cta{display:inline-block;padding:.9rem 1.6rem;border-radius:999px;background:var(--rose-500);color:#fff;font-weight:600;box-shadow:0 8px 20px rgba(225,29,72,0.18);text-decoration:none}
+    .cta:hover{background:var(--rose-600);transform:translateY(-2px);transition:all .18s ease}
+
+    /* ABOUT + SERVICES */
+    section{padding:3.5rem 0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+    .about-grid img{width:100%;border-radius:14px;box-shadow:0 12px 30px rgba(16,24,40,0.06);display:block}
+    .features{display:flex;flex-direction:column;gap:.9rem}
+    .feature-row{display:flex;gap:.9rem;align-items:flex-start}
+    .feature-row svg{flex-shrink:0;margin-top:.25rem;color:var(--rose-500)}
+    .service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem}
+    .card{background:var(--card-bg);padding:1.25rem;border-radius:12px;box-shadow:0 10px 26px rgba(16,24,40,0.06)}
+    .price{color:var(--rose-500);font-weight:600;margin-top:.6rem}
+
+    /* TESTIMONIALS */
+    .test-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+    /* CONTACT */
+    .contact-wrap{max-width:720px;margin:0 auto}
+    form{background:#fff;padding:1.25rem;border-radius:12px;box-shadow:0 12px 30px rgba(16,24,40,0.06)}
+    form .grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+    label{display:block;font-size:.9rem;margin-bottom:.35rem;color:var(--muted);font-weight:600}
+    input[type="text"],input[type="email"],input[type="date"],textarea{width:100%;padding:.65rem;border:1px solid #e6e6e6;border-radius:8px;font-size:0.95rem}
+    textarea{min-height:120px;resize:vertical}
+    .full{grid-column:1/-1}
+    .submit-btn{display:block;width:100%;padding:.8rem;border-radius:10px;background:var(--rose-500);color:#fff;border:0;font-weight:700;cursor:pointer}
+    .submit-btn:hover{background:var(--rose-600)}
+
+    /* FOOTER */
+    footer{padding:2rem 0;text-align:center;color:var(--muted);font-size:.95rem}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .about-grid{grid-template-columns:1fr}
+      .service-cards{grid-template-columns:1fr 1fr}
+      .test-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      section{padding:2rem 0}
+      .hero h1{font-size:1.9rem}
+      .hero p{font-size:.98rem}
+      .service-cards{grid-template-columns:1fr}
+    }
+
+    /* small animations */
+    .fade-in{opacity:0;transform:translateY(18px);transition:all .7s ease}
+    .fade-in.show{opacity:1;transform:none}
+    .underline{position:relative}
+    .underline::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--rose-500);transition:width .28s}
+    .underline:hover::after{width:100%}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (inline, plain DOM for easier styling + accessibility) -->
+  <header class="site-nav" role="banner" aria-hidden="false">
+    <div class="container nav-inner" role="navigation" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-current="page">
+        <span class="heart" aria-hidden="true">❤</span>
+        <span class="brand">Bound by Blessing</span>
+        <span class="tagline">Where Every Ceremony Becomes a Blessing</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" title="Menu">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile nav (hidden by default) -->
+    <div id="mobile-menu" style="display:none;padding:1rem;background:var(--glass);border-top:1px solid rgba(0,0,0,0.03)">
+      <div class="container" style="display:flex;flex-direction:column;gap:.6rem">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" style="padding-top:86px;">
+    <section class="hero" aria-label="Intro">
+      <div class="overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="card" role="region" aria-labelledby="hero-heading">
+          <h1 id="hero-heading">Bound by Blessing</h1>
+          <p>Heartfelt, personalized wedding officiant services crafted with love, intention, and spiritual grace.</p>
+          <div style="margin-top:1.25rem">
+            <a class="cta" href="#contact">Plan Your Ceremony</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container" aria-labelledby="about-heading">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:center">
+        <div>
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Officiant performing a ceremony" loading="lazy" style="width:100%;border-radius:12px;display:block">
+        </div>
+        <div>
+          <h2 id="about-heading">Your Story, Your Way</h2>
+          <p>As an ordained minister, I create ceremonies that honor your journey—religious, spiritual, interfaith, or beautifully non-religious. My goal is to make your ceremony feel authentic, intentional, and uniquely yours.</p>
+
+          <div class="features" aria-hidden="false">
+            <div class="feature-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.8 4.6a5.7 5.7 0 0 0-8.06 0L12 5.3l-.74-.7a5.7 5.7 0 1 0-8.06 8.06L12 21l8.8-8.34a5.7 5.7 0 0 0 0-8.06z"/></svg>
+              <div>
+                <div style="font-weight:700;color:#111">Personalized Vows</div>
+                <div style="color:var(--muted);font-size:.95rem">Guidance to express your love in your own words.</div>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v6l4 2"/></svg>
+              <div>
+                <div style="font-weight:700;color:#111">Flexible Approach</div>
+                <div style="color:var(--muted);font-size:.95rem">Religious, spiritual, or completely secular ceremonies.</div>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+              <div>
+                <div style="font-weight:700;color:#111">Stress-Free Planning</div>
+                <div style="color:var(--muted);font-size:.95rem">We handle legal paperwork, rehearsal coordination, and timing.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container" aria-labelledby="services-heading">
+      <h2 id="services-heading">Ceremony Services</h2>
+      <div class="service-cards" role="list">
+        <div class="card" role="listitem">
+          <h3>Full Wedding Ceremony</h3>
+          <p>A complete ceremony design, rehearsal attendance, and officiating. We craft a script that reflects your union.</p>
+          <div class="price">Starting at $450</div>
+        </div>
+
+        <div class="card" role="listitem">
+          <h3>Elopement Package</h3>
+          <p>Intimate, streamlined ceremonies perfect for elopements and micro-weddings—quick legal paperwork included.</p>
+          <div class="price">Starting at $250</div>
+        </div>
+
+        <div class="card" role="listitem">
+          <h3>Vow Writing Session</h3>
+          <p>Structured guidance to craft vows that say exactly what you mean—calming, clear, and heartfelt.</p>
+          <div class="price">$150 per couple</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container" aria-labelledby="stories-heading">
+      <h2 id="stories-heading">Happy Couples</h2>
+      <div class="test-grid" style="margin-top:1rem">
+        <div class="card">
+          <strong>Alex & Jamie</strong>
+          <p style="font-style:italic;color:var(--muted)">"Our ceremony was everything we hoped for — meaningful, warm, and perfectly paced. We couldn't have asked for more."</p>
+        </div>
+        <div class="card">
+          <strong>Taylor & Morgan</strong>
+          <p style="font-style:italic;color:var(--muted)">"Professional, compassionate, and so in tune with our vision. Guests are still talking about it!"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Let's Create Your Ceremony</h2>
+      <div class="contact-wrap" style="margin-top:1rem">
+        <!-- FormSubmit integrated (sends to paulriov@gmail.com) -->
+        <form action="https://formsubmit.co/paulriov@gmail.com" method="POST" autocomplete="off">
+          <!-- FormSubmit settings -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Wedding Inquiry — Bound by Blessing">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thank you! We received your inquiry and will reply shortly. — Bound by Blessing">
+
+          <div class="grid">
+            <div>
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="full">
+              <label for="wedding-date">Wedding Date (optional)</label>
+              <input id="wedding-date" name="wedding_date" type="date">
+            </div>
+            <div class="full">
+              <label for="message">Tell Us About Your Vision</label>
+              <textarea id="message" name="message" placeholder="Where will it be? Any special readings? Tone?" required></textarea>
+            </div>
+            <div class="full" style="margin-top:.4rem">
+              <button class="submit-btn" type="submit">Send Inquiry</button>
+            </div>
+          </div>
+        </form>
+
+        <p style="text-align:center;margin-top:.8rem;color:var(--muted);font-size:.95rem">Or email directly: <a href="mailto:paulriov@gmail.com" class="underline">paulriov@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:.5rem">© <strong>Bound by Blessing</strong> — All Rights Reserved</div>
+      <div style="font-size:.9rem;color:var(--muted)">Ordained Wedding Officiant • Inclusive • Personalized Ceremonies</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Feather icons
+    feather.replace();
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinksEl = document.querySelector('.nav-links');
+
+    menuBtn && menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+        mobileMenu.style.display = 'block';
+        menuBtn.querySelector('i').setAttribute('data-feather', 'x');
+      } else {
+        mobileMenu.style.display = 'none';
+        menuBtn.querySelector('i').setAttribute('data-feather', 'menu');
+      }
+      feather.replace();
+    });
+
+    // Simple scroll reveal for elements with fade-in classes
+    const faders = document.querySelectorAll('.fade-in, section');
+    const revealOnScroll = () => {
+      faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) el.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>
