@@ -3,410 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bound by Blessings provides heartfelt wedding officiant services for couples in Minnesota and the Twin Cities area." />
   <title>Bound by Blessings | Wedding Officiant Services</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #fffaf5;
-      color: #2f2a25;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #7b4f35, #c59b6d);
-      color: white;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-weight: bold;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .menu-btn {
-      display: none;
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 7px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .hero {
-      min-height: 85vh;
-      background:
-        linear-gradient(rgba(70,45,30,0.62), rgba(70,45,30,0.62)),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero-content {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 5rem);
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: clamp(1.1rem, 3vw, 1.45rem);
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #fff;
-      color: #7b4f35;
-      padding: 14px 24px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-    }
-
-    .btn-dark {
-      background: #7b4f35;
-      color: white;
-    }
-
-    section {
-      padding: 70px 20px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 2.2rem;
-      color: #7b4f35;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      color: #5f554d;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      border: 1px solid #f0dfcf;
-    }
-
-    .card h3 {
-      color: #7b4f35;
-      margin-bottom: 10px;
-      font-size: 1.35rem;
-    }
-
-    .price {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 15px 0;
-      color: #2f2a25;
-    }
-
-    .card ul {
-      margin-left: 18px;
-      margin-bottom: 22px;
-    }
-
-    .card li {
-      margin-bottom: 8px;
-    }
-
-    .about {
-      background: #f6eadc;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .about-box {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    .badge-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .badge {
-      background: #fffaf5;
-      border-left: 5px solid #c59b6d;
-      padding: 14px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      counter-reset: step;
-    }
-
-    .step {
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      width: 38px;
-      height: 38px;
-      background: #7b4f35;
-      color: white;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      font-weight: bold;
-      margin-bottom: 14px;
-    }
-
-    .faq {
-      background: #f6eadc;
-    }
-
-    .faq-item {
-      background: white;
-      margin-bottom: 14px;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: white;
-      border: none;
-      padding: 18px 22px;
-      text-align: left;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #2f2a25;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 22px;
-      transition: 0.3s ease;
-      color: #5f554d;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 160px;
-      padding: 0 22px 20px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    form {
-      background: white;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      margin-bottom: 16px;
-      border: 1px solid #d8c7b9;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .contact-info {
-      background: #7b4f35;
-      color: white;
-      padding: 30px;
-      border-radius: 18px;
-    }
-
-    .contact-info h3 {
-      margin-bottom: 18px;
-      font-size: 1.6rem;
-    }
-
-    .contact-info p {
-      margin-bottom: 14px;
-    }
-
-    .success-message {
-      display: none;
-      margin-top: 14px;
-      background: #e7f7e7;
-      color: #256029;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    footer {
-      background: #2f2a25;
-      color: white;
-      text-align: center;
-      padding: 26px 20px;
-    }
-
-    @media (max-width: 850px) {
-      .menu-btn {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        width: 100%;
-        margin-top: 18px;
-      }
-
-      nav.show {
-        display: block;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        display: block;
-        margin: 12px 0;
-      }
-
-      .cards,
-      .about-grid,
-      .steps,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 55px 18px;
-      }
-    }
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,sans-serif;background:#fffaf5;color:#2f2a25;line-height:1.6}header{background:linear-gradient(135deg,#7b4f35,#c59b6d);color:white;padding:14px 20px;position:sticky;top:0;z-index:1000;box-shadow:0 3px 12px rgba(0,0,0,.15)}.nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{display:flex;align-items:center;gap:12px;color:white;text-decoration:none}.logo img{width:58px;height:58px;object-fit:contain;border-radius:50%;background:white;padding:4px}.logo-text{display:flex;flex-direction:column;line-height:1.15}.logo-text strong{font-size:1.25rem;letter-spacing:.5px}.logo-text small{font-size:.75rem;opacity:.9}nav a{color:white;text-decoration:none;margin-left:18px;font-weight:bold;font-size:.95rem}nav a:hover{text-decoration:underline}.menu-btn{display:none;background:none;border:2px solid white;color:white;padding:7px 12px;border-radius:8px;cursor:pointer;font-weight:bold}.hero{min-height:85vh;background:linear-gradient(rgba(70,45,30,.62),rgba(70,45,30,.62)),url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;color:white;display:flex;align-items:center;text-align:center;padding:40px 20px}.hero-content{max-width:850px;margin:auto}.hero-logo{width:180px;max-width:45vw;margin-bottom:25px;border-radius:50%;background:white;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.25)}.hero h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;margin-bottom:20px}.hero p{font-size:clamp(1.1rem,3vw,1.45rem);margin-bottom:30px}.btn{display:inline-block;background:#fff;color:#7b4f35;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:bold;border:none;cursor:pointer;transition:.25s ease}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}.btn-dark{background:#7b4f35;color:white}section{padding:70px 20px}.container{max-width:1100px;margin:auto}.section-title{text-align:center;margin-bottom:15px;font-size:2.2rem;color:#7b4f35}.section-subtitle{text-align:center;max-width:720px;margin:0 auto 40px;color:#5f554d}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{background:white;border-radius:18px;padding:28px;box-shadow:0 5px 20px rgba(0,0,0,.08);border:1px solid #f0dfcf}.card h3{color:#7b4f35;margin-bottom:10px;font-size:1.35rem}.price{font-size:1.6rem;font-weight:bold;margin:15px 0;color:#2f2a25}.card ul{margin-left:18px;margin-bottom:22px}.card li{margin-bottom:8px}.about,.faq{background:#f6eadc}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-box{background:white;padding:30px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.08)}.badge-list{display:grid;gap:14px;margin-top:20px}.badge{background:#fffaf5;border-left:5px solid #c59b6d;padding:14px;border-radius:10px;font-weight:bold}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}.step{background:white;padding:24px;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.08)}.step::before{counter-increment:step;content:counter(step);width:38px;height:38px;background:#7b4f35;color:white;display:grid;place-items:center;border-radius:50%;font-weight:bold;margin-bottom:14px}.faq-item{background:white;margin-bottom:14px;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06)}.faq-question{width:100%;background:white;border:none;padding:18px 22px;text-align:left;font-size:1rem;font-weight:bold;cursor:pointer;color:#2f2a25;display:flex;justify-content:space-between;align-items:center}.faq-answer{max-height:0;overflow:hidden;padding:0 22px;transition:.3s ease;color:#5f554d}.faq-item.active .faq-answer{max-height:180px;padding:0 22px 20px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}form{background:white;padding:28px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.08)}label{display:block;margin-bottom:6px;font-weight:bold}input,select,textarea{width:100%;padding:13px;margin-bottom:16px;border:1px solid #d8c7b9;border-radius:10px;font-size:1rem;font-family:inherit}textarea{min-height:120px;resize:vertical}.contact-info{background:#7b4f35;color:white;padding:30px;border-radius:18px}.contact-info h3{margin-bottom:18px;font-size:1.6rem}.contact-info p{margin-bottom:14px}footer{background:#2f2a25;color:white;text-align:center;padding:30px 20px}.footer-logo{width:80px;margin-bottom:15px;border-radius:50%;background:white;padding:4px}.call-now{display:none;position:fixed;bottom:16px;left:16px;right:16px;background:#7b4f35;color:white;text-align:center;padding:14px;border-radius:999px;text-decoration:none;font-weight:bold;z-index:2000;box-shadow:0 8px 20px rgba(0,0,0,.25)}@media(max-width:850px){.menu-btn{display:block}nav{display:none;width:100%;margin-top:18px}nav.show{display:block}.nav{flex-wrap:wrap}nav a{display:block;margin:12px 0}.cards,.about-grid,.steps,.contact-grid{grid-template-columns:1fr}section{padding:55px 18px}.logo img{width:48px;height:48px}.logo-text strong{font-size:1rem}.logo-text small{font-size:.68rem}.call-now{display:block}footer{padding-bottom:78px}}
   </style>
 </head>
 <body>
-
   <header>
-    <div class="nav">
-      <div class="logo">Bound by Blessings</div>
+    <!---<div class="nav">
+      <a class="logo" href="#top">
+        <img src="logo.png" alt="Bound by Blessings Logo">
+        <div class="logo-text"><strong>Bound by Blessings</strong><small>Wedding Officiant Services</small></div>
+      </a>
       <button class="menu-btn" onclick="toggleMenu()">Menu</button>
       <nav id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
       </nav>
-    </div>
+    </div>-->
   </header>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-content">
+     <!-- <img src="logo.png" alt="Bound by Blessings Logo" class="hero-logo">-->
       <h1>Wedding Ceremonies Bound by Love & Blessings</h1>
-      <p>Professional, heartfelt, and affordable wedding officiant services for couples ready to begin their forever.</p>
+      <p>Professional, heartfelt, and affordable wedding officiant services for couples in Minnesota and the Twin Cities area.</p>
       <a href="#contact" class="btn">Book Your Ceremony</a>
     </div>
   </section>
@@ -415,7 +36,6 @@
     <div class="container">
       <h2 class="section-title">Services & Packages</h2>
       <p class="section-subtitle">Choose the package that best fits your ceremony, from simple license signing to a fully personalized wedding experience.</p>
-
       <div class="cards">
         <div class="card">
           <h3>Basic Ceremony</h3>
@@ -429,7 +49,6 @@
           </ul>
           <a href="#contact" class="btn btn-dark">Request Package</a>
         </div>
-
         <div class="card">
           <h3>Standard Wedding</h3>
           <p>A custom ceremony with planning support for your special day.</p>
@@ -442,7 +61,6 @@
           </ul>
           <a href="#contact" class="btn btn-dark">Request Package</a>
         </div>
-
         <div class="card">
           <h3>Premium Package</h3>
           <p>Fully personalized ceremony support for couples wanting a complete experience.</p>
@@ -463,16 +81,10 @@
     <div class="container about-grid">
       <div>
         <h2 class="section-title" style="text-align:left;">About Bound by Blessings</h2>
-        <p>
-          Bound by Blessings was created to help couples celebrate one of the most meaningful moments of their lives with respect, warmth, and care.
-          As an AMM ordained minister, I provide wedding officiant services that are professional, sincere, and personalized to each couple’s love story.
-        </p>
+        <p>Bound by Blessings was created to help couples celebrate one of the most meaningful moments of their lives with respect, warmth, and care. As an AMM ordained minister, I provide wedding officiant services that are professional, sincere, and personalized to each couple’s love story.</p>
         <br>
-        <p>
-          Whether you want a simple ceremony, a custom wedding script, or a full officiant experience, my goal is to make your ceremony feel peaceful, memorable, and true to you.
-        </p>
+        <p>Whether you want a simple ceremony, a custom wedding script, or a full officiant experience, my goal is to make your ceremony feel peaceful, memorable, and true to you.</p>
       </div>
-
       <div class="about-box">
         <h3>Why Couples Choose Us</h3>
         <div class="badge-list">
@@ -488,56 +100,35 @@
   <section id="process">
     <div class="container">
       <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">A simple process from first contact to “I do.”</p>
-
-      <div class="steps">
-        <div class="step">
-          <h3>Reach Out</h3>
-          <p>Send your wedding date, location, and the package you are interested in.</p>
-        </div>
-        <div class="step">
-          <h3>Planning Call</h3>
-          <p>We discuss your ceremony style, details, and any special requests.</p>
-        </div>
-        <div class="step">
-          <h3>Ceremony Prep</h3>
-          <p>Your ceremony is prepared and customized based on your needs.</p>
-        </div>
-        <div class="step">
-          <h3>Wedding Day</h3>
-          <p>I officiate your ceremony and complete the marriage license signing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <p class="section-subtitle">A simple process from first contact to “I do.”</p><div class="steps"><div class="step"><h3>Reach Out</h3><p>Send your wedding date, location, and the package you are interested in.</p></div><div class="step"><h3>Planning Call</h3><p>We discuss your ceremony style, details, and any special requests.</p></div><div class="step"><h3>Ceremony Prep</h3><p>Your ceremony is prepared and customized based on your needs.</p></div><div class="step"><h3>Wedding Day</h3><p>I officiate your ceremony and complete the marriage license signing.</p></div></div></div></section>
 
   <section id="faq" class="faq">
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
-
       <div class="faq-item">
-        <button class="faq-question">Do you sign the marriage license? <span>+</span></button>
+        <button class="faq-question">Do you sign the marriage license? <span>+</span>
+        </button>
         <div class="faq-answer">
           <p>Yes. Marriage license signing is included with officiant services. Couples are responsible for obtaining the marriage license before the ceremony.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question">Can we have a short ceremony? <span>+</span></button>
+        <button class="faq-question">Can we have a short ceremony? <span>+</span>
+        </button>
         <div class="faq-answer">
           <p>Yes. The Basic Ceremony package is perfect for short civil ceremonies, elopements, and small weddings.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question">Do you offer custom ceremonies? <span>+</span></button>
+        <button class="faq-question">Do you offer custom ceremonies? <span>+</span>
+        </button>
         <div class="faq-answer">
           <p>Yes. Standard and Premium packages include ceremony customization based on your relationship, values, and preferred tone.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question">Do you travel? <span>+</span></button>
+        <button class="faq-question">Do you travel? <span>+</span>
+        </button>
         <div class="faq-answer">
           <p>Yes. Travel may be included depending on the package and location. Additional travel fees may apply outside the normal service area.</p>
         </div>
@@ -549,89 +140,56 @@
     <div class="container">
       <h2 class="section-title">Contact & Booking</h2>
       <p class="section-subtitle">Ready to book or ask a question? Send your details below.</p>
-
       <div class="contact-grid">
-        <form id="contactForm">
+        <form action="https://formsubmit.co/pauloviruet@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Wedding Inquiry - Bound by Blessings">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <label for="name">Your Name</label>
-          <input type="text" id="name" required />
-
+          <input type="text" id="name" name="Name" required>
           <label for="email">Email</label>
-          <input type="email" id="email" required />
-
+          <input type="email" id="email" name="Email" required>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="Phone Number">
           <label for="date">Wedding Date</label>
-          <input type="date" id="date" />
-
+          <input type="date" id="date" name="Wedding Date">
+          <label for="location">Wedding Location</label>
+          <input type="text" id="location" name="Wedding Location">
+          <label for="guests">Estimated Guest Count</label>
+          <input type="number" id="guests" name="Guest Count">
           <label for="package">Package Interested In</label>
-          <select id="package">
+          <select id="package" name="Package">
             <option>Basic Ceremony</option>
             <option>Standard Wedding Package</option>
             <option>Premium Package</option>
             <option>Not Sure Yet</option>
           </select>
-
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your ceremony, location, and any special requests."></textarea>
-
-          <button class="btn btn-dark" type="submit">Send Message</button>
-          <div class="success-message" id="successMessage">
-            Thank you! Your message has been prepared. Please connect this form to your email service before publishing.
-          </div>
+          <textarea id="message" name="Message" placeholder="Tell me about your ceremony, location, and any special requests."></textarea>
+          <button class="btn btn-dark" type="submit">Request Consultation</button>
         </form>
-
         <div class="contact-info">
           <h3>Bound by Blessings</h3>
           <p><strong>Service:</strong> Wedding Officiant</p>
           <p><strong>Location:</strong> Minnesota / Twin Cities Area</p>
-          <p><strong>Email:</strong> info@gmail.com</p>
-          <p><strong>Phone:</strong> (773) 819-9901</p>
-
+          <p><strong>Email:</strong> pauloviruet@gmail.com</p>
+          <p><strong>Phone:</strong> Your Phone Number</p>
+          <p>Update this section with your real business phone number before publishing.</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
+    <!--<img src="logo.png" alt="Bound by Blessings Logo" class="footer-logo">-->
     <p>&copy; <span id="year"></span> Bound by Blessings. All rights reserved.</p>
   </footer>
+  <a href="tel:" class="call-now">Call Now</a>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
-    }
-
-    document.querySelectorAll(".faq-question").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = button.parentElement;
-        item.classList.toggle("active");
-        button.querySelector("span").textContent = item.classList.contains("active") ? "-" : "+";
-      });
-    });
-
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const date = document.getElementById("date").value;
-      const selectedPackage = document.getElementById("package").value;
-      const message = document.getElementById("message").value;
-
-      const subject = encodeURIComponent("Wedding Officiant Inquiry - Bound by Blessings");
-      const body = encodeURIComponent(
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Wedding Date: " + date + "\n" +
-        "Package: " + selectedPackage + "\n\n" +
-        "Message:\n" + message
-      );
-
-      document.getElementById("successMessage").style.display = "block";
-
-      // Replace info@gmail.com with your real business email.
-      window.location.href = "mailto:pauloviruet@gmail.com?subject=" + subject + "&body=" + body;
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
+    function toggleMenu(){document.getElementById("navLinks").classList.toggle("show")}
+    document.querySelectorAll(".faq-question").forEach(button=>{button.addEventListener("click",()=>{const item=button.parentElement;item.classList.toggle("active");button.querySelector("span").textContent=item.classList.contains("active")?"-":"+"})});
+    document.getElementById("year").textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
